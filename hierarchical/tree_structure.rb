@@ -22,7 +22,7 @@ module TreeStructure
   end
 
   # Generate full ancetor path for record
-  def ancetor_path(include_self = true, show_name = false, is_join = true, separator = ' - ')
+  def ancetor_path(include_self: true, show_name: false, is_join: true, separator: ' - ')
     data_list = include_self ? ancestors + [id] : ancestors
     data_list = self.class.find(data_list).map(&:name) if show_name
     is_join ? data_list.join(separator) : data_list
